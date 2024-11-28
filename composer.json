@@ -22,7 +22,10 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.6",
-        "symfony/maker-bundle": "^1.61"
+        "hautelook/alice-bundle": "^2.14",
+        "nelmio/alice": "^3.13",
+        "symfony/maker-bundle": "^1.61",
+        "theofidry/alice-data-fixtures": "^1.8"
     },
     "config": {
         "allow-plugins": {

@@ -1,0 +1,9 @@
+App\Entity\Media:
+  media_1:
+    title: 'Example Media 1'
+    categories: [ '@category_1', '@category_2' ]
+    languages: [ '@language_1', '@language_2' ]
+  media_2:
+    title: 'Example Media 2'
+    categories: [ '@category_1' ]
+    languages: [ '@language_3' ]

@@ -181,7 +181,7 @@ class AppFixtures extends Fixture
 
         foreach ($array as $element) {
             $category = new Category();
-            $category->setNom($element['nom']);
+            $category->setName($element['nom']);
             $category->setLabel($element['label']);
             $manager->persist($category);
             $categories[] = $category;
@@ -201,7 +201,7 @@ class AppFixtures extends Fixture
         foreach ($array as $element) {
             $language = new Language();
             $language->setCode($element['code']);
-            $language->setNom($element['nom']);
+            $language->setName($element['nom']);
             $manager->persist($language);
             $languages[] = $language;
         }

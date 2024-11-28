@@ -1,0 +1,7 @@
+App\Entity\Subscription:
+  subscription_1:
+    name: 'Basic'
+    price: 9.99
+  subscription_2:
+    name: 'Premium'
+    price: 19.99

@@ -1,0 +1,9 @@
+App\Entity\Playlist:
+  playlist_1:
+    name: 'Example Playlist 1'
+    creator: '@user_1'
+    media: [ '@media_1', '@media_2' ]
+  playlist_2:
+    name: 'Example Playlist 2'
+    creator: '@user_2'
+    media: [ '@media_1' ]

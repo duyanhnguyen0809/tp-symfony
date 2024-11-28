@@ -1,0 +1,11 @@
+App\Entity\User:
+  user_1:
+    username: 'testuser1'
+    email: 'testuser1@example.com'
+    password: "test"
+    accountStatus: 'active'
+  user_2:
+    username: 'testuser2'
+    email: 'testuser2@example.com'
+    password: "test"
+    accountStatus: 'pending'

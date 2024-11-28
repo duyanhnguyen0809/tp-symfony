@@ -1,0 +1,9 @@
+App\Entity\PlaylistMedia:
+  playlist_media_1:
+    playlist: '@playlist_1'
+    media: '@media_1'
+    addedAt: <dateTimeBetween('-1 year', 'now')>
+  playlist_media_2:
+    playlist: '@playlist_2'
+    media: '@media_2'
+    addedAt: <dateTimeBetween('-1 year', 'now')>
