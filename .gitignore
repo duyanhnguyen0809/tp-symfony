@@ -1,4 +1,3 @@
-
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -7,4 +6,34 @@
 /public/bundles/
 /var/
 /vendor/
+/.env
 ###< symfony/framework-bundle ###
+
+# Ignore IDE files
+/.idea/
+/.vscode/
+
+# Ignore node_modules
+/node_modules/
+
+# Ignore build artifacts
+/build/
+/dist/
+
+# Ignore log files and temp files
+/logs/
+/tmp/
+/.cache/
+
+# Ignore test result files
+/test-results/
+
+# Ignore user-specific files
+/.DS_Store
+Thumbs.db
+
+# Ignore documentation files
+/Cahier-des-charges.md
+/Sujet-projet-symfony.md
+/todo-step-by-step.md
+/schema_bdd.png
