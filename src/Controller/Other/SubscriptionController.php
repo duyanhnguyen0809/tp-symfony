@@ -14,8 +14,7 @@ class SubscriptionController extends AbstractController
     #[Route(path: '/subscriptions', name: 'subscriptions')]
     public function show(
         SubscriptionRepository $subscriptionRepository
-    ): Response
-    {
+    ): Response {
         $subscriptions = $subscriptionRepository->findAll();
 
         return $this->render('other/abonnements.html.twig', [

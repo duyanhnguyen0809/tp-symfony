@@ -42,11 +42,7 @@ class AppFixtures extends Fixture
     public const MAX_COMMENTS_PER_MEDIA = 10;
     public const MAX_PLAYLIST_SUBSCRIPTION_PER_USERS = 3;
 
-    public function __construct(
-        protected UserPasswordHasherInterface $passwordHasher
-    )
-    {
-    }
+    public function __construct(private UserPasswordHasherInterface $passwordHasher) {}
 
     public function load(ObjectManager $manager): void
     {
@@ -74,6 +70,7 @@ class AppFixtures extends Fixture
 
         $manager->flush();
     }
+
 
     protected function createSubscriptions(ObjectManager $manager, array $users, array &$subscriptions): void
     {
@@ -130,25 +127,31 @@ class AppFixtures extends Fixture
         }
     }
 
-    protected function createUsers(ObjectManager $manager, array &$users): void
+    
+    private function createUsers(ObjectManager $manager, array &$users): void
     {
-        for ($i = 0; $i < self::MAX_USERS; $i++) {
+        // Create an admin user
+        $admin = new User();
+        $admin->setEmail('admin@example.com');
+        $admin->setUsername('admin'); // Set username
+        $admin->setAccountStatus(UserAccountStatusEnum::ACTIVE); // Set account status
+        $hashedPassword = $this->passwordHasher->hashPassword($admin, 'admin123');
+        $admin->setPassword($hashedPassword);
+        $admin->setRoles(['ROLE_ADMIN']);
+        $manager->persist($admin);
+        $users[] = $admin;
+
+        // Create regular users
+        for ($i = 1; $i <= 5; $i++) {
             $user = new User();
-            $user->setEmail(email: "test_$i@example.com");
-            $user->setUsername(username: "test_$i");
-
-            $hashedPassword = $this->passwordHasher->hashPassword(
-                $user,
-                'coucou'
-            );
-
-            $user->setPassword(password: $hashedPassword);
+            $user->setEmail("user$i@example.com");
+            $user->setUsername("user$i"); // Set username
+            $user->setAccountStatus(UserAccountStatusEnum::ACTIVE); // Set account status
+            $hashedPassword = $this->passwordHasher->hashPassword($user, 'password123');
+            $user->setPassword($hashedPassword);
             $user->setRoles(['ROLE_USER']);
-
-            $user->setAccountStatus(UserAccountStatusEnum::ACTIVE);
+            $manager->persist($user);
             $users[] = $user;
-
-            $manager->persist(object: $user);
         }
     }
 
